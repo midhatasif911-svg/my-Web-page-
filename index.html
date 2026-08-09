@@ -1,54 +1,402 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>My First Web Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-size: 54px;
-        }
+<title>Fresh Veggie 3D</title>
 
-        h1 {
-            font-size: 50px;
-        }
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
 
-        p {
-            font-size: 58px;
-        }
+body{
+    background:linear-gradient(135deg,#dfffe2,#f7fff7);
+    color:#18351c;
+}
 
-        table {
-            font-size: 56px;
-            border-collapse: collapse;
-        }
+/* HEADER */
+header{
+    background:linear-gradient(145deg,#0b6b2f,#2e9b4f);
+    color:white;
+    padding:25px 15px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
 
-        th, td {
-            border: 2px solid black;
-            padding: 15px 30px;
-        }
-    </style>
+header h1{
+    font-size:32px;
+    text-shadow:3px 3px 5px rgba(0,0,0,.3);
+}
+
+header p{
+    margin-top:7px;
+}
+
+/* MAIN */
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.welcome{
+    background:white;
+    padding:22px;
+    border-radius:20px;
+    text-align:center;
+    margin-bottom:25px;
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+    transform:perspective(700px) rotateX(2deg);
+}
+
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.card{
+    background:linear-gradient(145deg,#ffffff,#e9f8eb);
+    padding:20px;
+    border-radius:22px;
+    text-align:center;
+
+    box-shadow:
+        8px 8px 18px rgba(0,0,0,.18),
+        -5px -5px 12px rgba(255,255,255,.9);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px) rotateX(3deg) rotateY(-3deg);
+    box-shadow:
+        12px 18px 25px rgba(0,0,0,.25);
+}
+
+.emoji{
+    font-size:70px;
+    filter:drop-shadow(5px 8px 5px rgba(0,0,0,.25));
+    margin-bottom:10px;
+}
+
+.card h2{
+    margin-bottom:6px;
+}
+
+.price{
+    color:#168038;
+    font-size:18px;
+    font-weight:bold;
+    margin:10px;
+}
+
+/* BUTTON */
+button{
+    background:linear-gradient(145deg,#35a853,#08752c);
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:bold;
+
+    box-shadow:
+        0 6px 0 #075522,
+        0 10px 15px rgba(0,0,0,.25);
+
+    transition:.15s;
+}
+
+button:active{
+    transform:translateY(5px);
+    box-shadow:0 2px 0 #075522;
+}
+
+/* CART */
+.cart{
+    margin-top:30px;
+    background:white;
+    padding:22px;
+    border-radius:20px;
+
+    box-shadow:
+        8px 10px 25px rgba(0,0,0,.18);
+}
+
+.cart h2{
+    color:#146b2e;
+    margin-bottom:15px;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.quantity button{
+    padding:5px 10px;
+    margin:0 3px;
+    box-shadow:none;
+}
+
+.total{
+    text-align:right;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:15px;
+    color:#126c2d;
+}
+
+.checkout{
+    width:100%;
+    margin-top:18px;
+    font-size:17px;
+}
+
+.empty{
+    text-align:center;
+    color:#777;
+}
+
+/* FOOTER */
+footer{
+    margin-top:30px;
+    background:#075c27;
+    color:white;
+    text-align:center;
+    padding:18px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    .products{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .emoji{
+        font-size:55px;
+    }
+
+    .card h2{
+        font-size:18px;
+    }
+
+    .price{
+        font-size:15px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <h1>Welcome 🤗</h1>
+<header>
+    <h1>🥬 Fresh Veggie 3D</h1>
+    <p>Fresh Vegetables • Fresh Life</p>
+</header>
 
-    <p>I have 2 brothers shown in the table 👇!</p>
+<div class="container">
 
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-        </tr>
+    <div class="welcome">
+        <h2>Welcome! 👋</h2>
+        <p>Choose fresh vegetables and add them to your cart.</p>
+    </div>
 
-        <tr>
-            <td>Midhat Asif</td>
-            <td>16</td>
-        </tr>
+    <div class="products">
 
-        <tr>
-            <td>Hamdan Asif</td>
-            <td>14</td>
-        </tr>
-    </table>
+        <div class="card">
+            <div class="emoji">🥔</div>
+            <h2>Potato</h2>
+            <p>Fresh Potato</p>
+            <div class="price">Rs. 120 / kg</div>
+            <button onclick="addToCart('Potato',120)">
+                🛒 Add to Cart
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🍅</div>
+            <h2>Tomato</h2>
+            <p>Fresh Tomato</p>
+            <div class="price">Rs. 150 / kg</div>
+            <button onclick="addToCart('Tomato',150)">
+                🛒 Add to Cart
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🥕</div>
+            <h2>Carrot</h2>
+            <p>Fresh Carrot</p>
+            <div class="price">Rs. 100 / kg</div>
+            <button onclick="addToCart('Carrot',100)">
+                🛒 Add to Cart
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🥒</div>
+            <h2>Cucumber</h2>
+            <p>Fresh Cucumber</p>
+            <div class="price">Rs. 130 / kg</div>
+            <button onclick="addToCart('Cucumber',130)">
+                🛒 Add to Cart
+            </button>
+        </div>
+
+    </div>
+
+    <!-- CART -->
+    <div class="cart">
+
+        <h2>🛒 Your Cart</h2>
+
+        <div id="cartItems">
+            <p class="empty">Your cart is empty.</p>
+        </div>
+
+        <div class="total">
+            Total: Rs. <span id="total">0</span>
+        </div>
+
+        <button class="checkout" onclick="checkout()">
+            ✅ Checkout
+        </button>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Fresh Veggie
+</footer>
+
+
+<script>
+
+let cart = {};
+
+function addToCart(name,price){
+
+    if(cart[name]){
+        cart[name].quantity++;
+    }else{
+        cart[name]={
+            price:price,
+            quantity:1
+        };
+    }
+
+    showCart();
+}
+
+
+function increase(name){
+    cart[name].quantity++;
+    showCart();
+}
+
+
+function decrease(name){
+
+    cart[name].quantity--;
+
+    if(cart[name].quantity <= 0){
+        delete cart[name];
+    }
+
+    showCart();
+}
+
+
+function showCart(){
+
+    let cartItems=document.getElementById("cartItems");
+
+    cartItems.innerHTML="";
+
+    let total=0;
+
+    let names=Object.keys(cart);
+
+    if(names.length===0){
+
+        cartItems.innerHTML=
+        '<p class="empty">Your cart is empty.</p>';
+
+    }else{
+
+        names.forEach(name=>{
+
+            let item=cart[name];
+
+            let itemTotal=item.price*item.quantity;
+
+            total+=itemTotal;
+
+            cartItems.innerHTML+=`
+
+            <div class="cart-item">
+
+                <div>
+                    <strong>${name}</strong><br>
+                    Rs. ${item.price} × ${item.quantity}
+                </div>
+
+                <div class="quantity">
+
+                    <button onclick="decrease('${name}')">
+                        −
+                    </button>
+
+                    ${item.quantity}
+
+                    <button onclick="increase('${name}')">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+        });
+    }
+
+    document.getElementById("total").innerText=total;
+}
+
+
+function checkout(){
+
+    if(Object.keys(cart).length===0){
+
+        alert("Your cart is empty! 🛒");
+
+    }else{
+
+        alert(
+            "🎉 Order placed successfully!"+
+            "\nTotal: Rs. "+
+            document.getElementById("total").innerText
+        );
+
+        cart={};
+        showCart();
+    }
+}
+
+</script>
 
 </body>
 </html>
